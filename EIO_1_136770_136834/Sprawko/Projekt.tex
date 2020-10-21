@@ -65,7 +65,7 @@
 			B & B & 0 \\ 
 		\end{tabular}
 	
-	\item W ostatniej fazie rysowane jest drzewo - w osobnym pliku otwirającym się na poziomie jupytera, jako że wygodniej jest przeglądać duży obrazek właśnie w takiej formie niż jako standardowy obrazek wewnątrz jupytera; wierzchołek opisany jest w formacie "1:x / 0:y", który oznacza, że w wierzchołku jest x obserwacji mających w polu "Survived" wartość 1 i y obserwacji mających w polu "Survived" wartość 0. Na krawędzi pokazywany jest split który do powstania tego wierzchołka doprowadził.
+	\item W ostatniej fazie rysowane jest drzewo - w osobnym pliku otwierającym się na poziomie jupytera, jako że wygodniej jest przeglądać duży obrazek właśnie w takiej formie niż jako standardowy obrazek wewnątrz jupytera; wierzchołek opisany jest w formacie "1:x / 0:y", który oznacza, że w wierzchołku jest x obserwacji mających w polu "Survived" wartość 1 i y obserwacji mających w polu "Survived" wartość 0. Na krawędzi pokazywany jest split który do powstania tego wierzchołka doprowadził.
 \end{enumerate}
 
 \section{Metoda dla danych ciągłych}
@@ -78,334 +78,443 @@
 \section{Działanie algorytmu - Logi (wersja na 5.0)}
 W kolejnych wierszach: wszystkie gain ratio dla atrybutów, w \# wybrany atrybut do podziału, w przypadku atrybutu ciągłego punkt splita dający daną wartość gain ratio
 \begin{verbatim}
-	New vertex is processed: this vertex contains 40 survived observations and 60 deceased observations
-	The splits that led to the advent of this vertex were: []
+	New vertex is processed: this vertex contains
+	- 40 survived observations
+	- 60 deceased observations
+	The splits that led to the advent of this vertex were:
+	[]
 	column: Pclass, gain ratio: 0.05960489889898, attribute discrete
 	column: Sex, gain ratio: 0.40323636523376316, attribute discrete
 	column: Age, gain ratio: 0.16497395662937295, split value: 1
 	column: SibSp, gain ratio: 0.02511018959580578, attribute discrete
 	column: Parch, gain ratio: 0.01464001497707953, attribute discrete
-	############### Chosen attribute: Sex, value of gain: 0.40323636523376316 ##################
+	############### Chosen attribute: Sex, value of gain: 0.40323636523376316
 	
-	New vertex is processed: this vertex contains 7 survived observations and 53 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male']
+	New vertex is processed: this vertex contains
+	- 7 survived observations
+	- 53 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male']
 	column: Pclass, gain ratio: 0.07729306659385578, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.4355418320733391, split value: 1
 	column: SibSp, gain ratio: 0.020306536706473522, attribute discrete
 	column: Parch, gain ratio: 0.03512786197394762, attribute discrete
-	############### Chosen attribute: Age, value of gain: 0.4355418320733391 ##################
+	############### Chosen attribute: Age, value of gain: 0.4355418320733391
 	
-	New vertex is processed: this vertex contains 33 survived observations and 7 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female']
+	New vertex is processed: this vertex contains
+	- 33 survived observations
+	- 7 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female']
 	column: Pclass, gain ratio: 0.12003370114124165, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.08066119202255055, split value: 40
 	column: SibSp, gain ratio: 0.16649361093302303, attribute discrete
 	column: Parch, gain ratio: 0.013322955978332338, attribute discrete
-	############### Chosen attribute: SibSp, value of gain: 0.16649361093302303 ##################
+	############### Chosen attribute: SibSp, value of gain: 0.16649361093302303
 	
-	New vertex is processed: this vertex contains 1 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age <= 1']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age <= 1']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 6 survived observations and 53 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1']
+	New vertex is processed: this vertex contains
+	- 6 survived observations
+	- 53 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1']
 	column: Pclass, gain ratio: 0.07134448543370803, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.05346216522701795, split value: 40
 	column: SibSp, gain ratio: 0.016521875902366145, attribute discrete
 	column: Parch, gain ratio: 0.0438446848069315, attribute discrete
-	############### Chosen attribute: Pclass, value of gain: 0.07134448543370803 ##################
+	############### Chosen attribute: Pclass, value of gain: 0.07134448543370803
 	
-	New vertex is processed: this vertex contains 11 survived observations and 4 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1']
+	New vertex is processed: this vertex contains
+	- 11 survived observations
+	- 4 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1']
 	column: Pclass, gain ratio: 0.2997723162709534, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.17110871057416346, split value: 14
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.11576241483250045, attribute discrete
-	############### Chosen attribute: Pclass, value of gain: 0.2997723162709534 ##################
+	############### Chosen attribute: Pclass, value of gain: 0.2997723162709534
 	
-	New vertex is processed: this vertex contains 19 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 0']
+	New vertex is processed: this vertex contains
+	- 19 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 0']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 2 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 3']
+	New vertex is processed: this vertex contains
+	- 2 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 3']
 	column: Pclass, gain ratio: 0.274017542121281, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 1.0, split value: 8
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.579380164285695, attribute discrete
-	############### Chosen attribute: Age, value of gain: 1.0 ##################
+	############### Chosen attribute: Age, value of gain: 1.0
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 2']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 2']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 4']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 4']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 5']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 5']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 37 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 37 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.05569120277229924, split value: 32
 	column: SibSp, gain ratio: 0.03969457544077502, attribute discrete
 	column: Parch, gain ratio: 0.07483597867418908, attribute discrete
-	############### Chosen attribute: Parch, value of gain: 0.07483597867418908 ##################
+	############### Chosen attribute: Parch, value of gain: 0.07483597867418908
 	
-	New vertex is processed: this vertex contains 4 survived observations and 9 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 1']
+	New vertex is processed: this vertex contains
+	- 4 survived observations
+	- 9 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 1']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.4686651882055394, split value: 40
 	column: SibSp, gain ratio: 0.222057265152258, attribute discrete
 	column: Parch, gain ratio: 0.059246976190095675, attribute discrete
-	############### Chosen attribute: Age, value of gain: 0.4686651882055394 ##################
+	############### Chosen attribute: Age, value of gain: 0.4686651882055394
 	
-	New vertex is processed: this vertex contains 1 survived observations and 7 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 2']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 7 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 2']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 1.0, split value: 12
 	column: SibSp, gain ratio: 0.04755786045881497, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### Chosen attribute: Age, value of gain: 1.0 ##################
+	############### Chosen attribute: Age, value of gain: 1.0
 	
-	New vertex is processed: this vertex contains 4 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1', 'Pclass = 1']
+	New vertex is processed: this vertex contains
+	- 4 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1', 'Pclass = 1']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 5 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1', 'Pclass = 2']
+	New vertex is processed: this vertex contains
+	- 5 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1', 'Pclass = 2']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 2 survived observations and 4 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1', 'Pclass = 3']
+	New vertex is processed: this vertex contains
+	- 2 survived observations
+	- 4 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1', 'Pclass = 3']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.4871971762327021, split value: 4
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.7336804366512111, attribute discrete
-	############### Chosen attribute: Parch, value of gain: 0.7336804366512111 ##################
+	############### Chosen attribute: Parch, value of gain: 0.7336804366512111
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 3', 'Age <= 8']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 3', 'Age <= 8']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 2 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 3', 'Age > 8']
+	New vertex is processed: this vertex contains
+	- 2 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 3', 'Age > 8']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 29 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 0']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 29 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 0']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 3 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 3 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 1.0, split value: 7
 	column: SibSp, gain ratio: 0.5408520829727552, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### Chosen attribute: Age, value of gain: 1.0 ##################
+	############### Chosen attribute: Age, value of gain: 1.0
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 5']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 5']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 3 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 2']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 3 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 2']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 3']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 3']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 4 survived observations and 2 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40']
+	New vertex is processed: this vertex contains
+	- 4 survived observations
+	- 2 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0.16794857383343836, split value: 13
 	column: SibSp, gain ratio: 0.7336804366512111, attribute discrete
 	column: Parch, gain ratio: 0.3015619649304495, attribute discrete
-	############### Chosen attribute: SibSp, value of gain: 0.7336804366512111 ##################
+	############### Chosen attribute: SibSp, value of gain: 0.7336804366512111
 	
-	New vertex is processed: this vertex contains 0 survived observations and 7 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 1', 'Age > 40']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 7 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age > 40']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 2', 'Age <= 12']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 2', 'Age <= 12']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 7 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 2', 'Age > 12']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 7 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 2', 'Age > 12']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 1']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 1']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 4 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 0']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 4 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 0']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 5']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 5']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 3 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1', 'Age <= 7']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 3 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1', 'Age <= 7']
 	
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 1 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1', 'Age > 7']
+	New vertex is processed: this vertex contains
+	- 1 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1', 'Age > 7']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 4 survived observations and 0 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 0']
+	New vertex is processed: this vertex contains
+	- 4 survived observations
+	- 0 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 0']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 3']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 3']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################
+	############### No chosen attribute, end of processing for this subset of dataframe
 	
-	New vertex is processed: this vertex contains 0 survived observations and 1 deceased observations
-	The splits that led to the advent of this vertex were: ['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 1']
+	New vertex is processed: this vertex contains
+	- 0 survived observations
+	- 1 deceased observations
+	The splits that led to the advent of this vertex were:
+	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 1']
 	column: Pclass, gain ratio: 0.0, attribute discrete
 	column: Sex, gain ratio: 0.0, attribute discrete
 	column: Age, gain ratio: 0, split value: 0
 	column: SibSp, gain ratio: 0.0, attribute discrete
 	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe ##################	
+	############### No chosen attribute, end of processing for this subset of dataframe
+	
+	
 \end{verbatim}
 \section{Działanie algorytmu - Generowane drzewa}
 
-\clearpage
 \begin{figure}[h!]
 	\subsection{Dyskretny Age}
 	\centering
