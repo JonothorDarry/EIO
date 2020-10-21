@@ -76,445 +76,212 @@
 \end{enumerate}
 
 \section{Działanie algorytmu - Logi (wersja na 5.0)}
-W kolejnych wierszach: wszystkie gain ratio dla atrybutów, w \# wybrany atrybut do podziału, w przypadku atrybutu ciągłego punkt splita dający daną wartość gain ratio
+W kolejnych wierszach: pokaz przebiegu algorytmu (jako logi) dla kilku pierwszych wierzchołków dla przypadku z ciągłym atrybutem Age.
 \begin{verbatim}
 	New vertex is processed: this vertex contains
 	- 40 survived observations
 	- 60 deceased observations
 	The splits that led to the advent of this vertex were:
 	[]
-	column: Pclass, gain ratio: 0.05960489889898, attribute discrete
-	column: Sex, gain ratio: 0.40323636523376316, attribute discrete
-	column: Age, gain ratio: 0.16497395662937295, split value: 1
-	column: SibSp, gain ratio: 0.02511018959580578, attribute discrete
-	column: Parch, gain ratio: 0.01464001497707953, attribute discrete
+	Now, the possibility of split on attribute Pclass is processed
+	Calculated entropy for "Survived" attribute is equal to 0.970951
+	Calculated conditional entropy after splitting dataset on column Pclass
+	Calculated conditional entropy is equal to 0.889278
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.970951-0.889278=0.081672
+	Intristic info is equal to 1.370229
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.081672/1.370229=0.059605
+	column: Pclass, gain ratio: 0.059605, attribute discrete
+	
+	Now, the possibility of split on attribute Sex is processed
+	Calculated entropy for "Survived" attribute is equal to 0.970951
+	Calculated conditional entropy after splitting dataset on column Sex
+	Calculated conditional entropy is equal to 0.579428
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.970951-0.579428=0.391523
+	Intristic info is equal to 0.970951
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.391523/0.970951=0.403236
+	column: Sex, gain ratio: 0.403236, attribute discrete
+	
+	Now, the possibility of split on attribute Age is processed
+	Solution is shown only for best possible split on this column, as
+	otherwise it would be too long
+	Calculated entropy for "Survived" attribute is equal to 0.970951
+	Intristic info is equal to 0.080793
+	Calculated conditional entropy after splitting dataset on column Age on x<=1
+	Calculated conditional entropy is equal to 0.957622
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.970951-0.957622=0.013329
+	Gain ratio for continuous attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.013329/0.080793=0.164974
+	column: Age, gain ratio: 0.164974, split value: 1
+	
+	Now, the possibility of split on attribute SibSp is processed
+	Calculated entropy for "Survived" attribute is equal to 0.970951
+	Calculated conditional entropy after splitting dataset on column SibSp
+	Calculated conditional entropy is equal to 0.930295
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.970951-0.930295=0.040655
+	Intristic info is equal to 1.619082
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.040655/1.619082=0.025110
+	column: SibSp, gain ratio: 0.025110, attribute discrete
+	
+	Now, the possibility of split on attribute Parch is processed
+	Calculated entropy for "Survived" attribute is equal to 0.970951
+	Calculated conditional entropy after splitting dataset on column Parch
+	Calculated conditional entropy is equal to 0.954369
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.970951-0.954369=0.016581
+	Intristic info is equal to 1.132600
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.016581/1.132600=0.014640
+	column: Parch, gain ratio: 0.014640, attribute discrete
+	
 	############### Chosen attribute: Sex, value of gain: 0.40323636523376316
+	
 	
 	New vertex is processed: this vertex contains
 	- 7 survived observations
 	- 53 deceased observations
 	The splits that led to the advent of this vertex were:
 	['Sex = male']
-	column: Pclass, gain ratio: 0.07729306659385578, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.4355418320733391, split value: 1
-	column: SibSp, gain ratio: 0.020306536706473522, attribute discrete
-	column: Parch, gain ratio: 0.03512786197394762, attribute discrete
+	Now, the possibility of split on attribute Pclass is processed
+	Calculated entropy for "Survived" attribute is equal to 0.519703
+	Calculated conditional entropy after splitting dataset on column Pclass
+	Calculated conditional entropy is equal to 0.418762
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.519703-0.418762=0.100941
+	Intristic info is equal to 1.305952
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.100941/1.305952=0.077293
+	column: Pclass, gain ratio: 0.077293, attribute discrete
+	
+	Now, the possibility of split on attribute Sex is processed
+	Calculated entropy for "Survived" attribute is equal to 0.519703
+	Calculated conditional entropy after splitting dataset on column Sex
+	Calculated conditional entropy is equal to 0.519703
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.519703-0.519703=0.000000
+	Intristic info is equal to infinity
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.000000/0.000010=0.000000
+	column: Sex, gain ratio: 0.000000, attribute discrete
+	
+	Now, the possibility of split on attribute Age is processed
+	Solution is shown only for best possible split on this column, as
+	otherwise it would be too long
+	Calculated entropy for "Survived" attribute is equal to 0.519703
+	Intristic info is equal to 0.122292
+	Calculated conditional entropy after splitting dataset on column Age on x<=1
+	Calculated conditional entropy is equal to 0.466440
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.519703-0.466440=0.053263
+	Gain ratio for continuous attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.053263/0.122292=0.435542
+	column: Age, gain ratio: 0.435542, split value: 1
+	
+	Now, the possibility of split on attribute SibSp is processed
+	Calculated entropy for "Survived" attribute is equal to 0.519703
+	Calculated conditional entropy after splitting dataset on column SibSp
+	Calculated conditional entropy is equal to 0.489324
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.519703-0.489324=0.030379
+	Intristic info is equal to 1.496031
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.030379/1.496031=0.020307
+	column: SibSp, gain ratio: 0.020307, attribute discrete
+	
+	Now, the possibility of split on attribute Parch is processed
+	Calculated entropy for "Survived" attribute is equal to 0.519703
+	Calculated conditional entropy after splitting dataset on column Parch
+	Calculated conditional entropy is equal to 0.480928
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.519703-0.480928=0.038774
+	Intristic info is equal to 1.103806
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.038774/1.103806=0.035128
+	column: Parch, gain ratio: 0.035128, attribute discrete
+	
 	############### Chosen attribute: Age, value of gain: 0.4355418320733391
+	
 	
 	New vertex is processed: this vertex contains
 	- 33 survived observations
 	- 7 deceased observations
 	The splits that led to the advent of this vertex were:
 	['Sex = female']
-	column: Pclass, gain ratio: 0.12003370114124165, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.08066119202255055, split value: 40
-	column: SibSp, gain ratio: 0.16649361093302303, attribute discrete
-	column: Parch, gain ratio: 0.013322955978332338, attribute discrete
+	Now, the possibility of split on attribute Pclass is processed
+	Calculated entropy for "Survived" attribute is equal to 0.669016
+	Calculated conditional entropy after splitting dataset on column Pclass
+	Calculated conditional entropy is equal to 0.496316
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.669016-0.496316=0.172700
+	Intristic info is equal to 1.438759
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.172700/1.438759=0.120034
+	column: Pclass, gain ratio: 0.120034, attribute discrete
+	
+	Now, the possibility of split on attribute Sex is processed
+	Calculated entropy for "Survived" attribute is equal to 0.669016
+	Calculated conditional entropy after splitting dataset on column Sex
+	Calculated conditional entropy is equal to 0.669016
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.669016-0.669016=0.000000
+	Intristic info is equal to infinity
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.000000/0.000010=0.000000
+	column: Sex, gain ratio: 0.000000, attribute discrete
+	
+	Now, the possibility of split on attribute Age is processed
+	Solution is shown only for best possible split on this column, as
+	otherwise it would be too long
+	Calculated entropy for "Survived" attribute is equal to 0.669016
+	Intristic info is equal to 0.669016
+	Calculated conditional entropy after splitting dataset on column Age on x<=40
+	Calculated conditional entropy is equal to 0.615052
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.669016-0.615052=0.053964
+	Gain ratio for continuous attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.053964/0.669016=0.080661
+	column: Age, gain ratio: 0.080661, split value: 40
+	
+	Now, the possibility of split on attribute SibSp is processed
+	Calculated entropy for "Survived" attribute is equal to 0.669016
+	Calculated conditional entropy after splitting dataset on column SibSp
+	Calculated conditional entropy is equal to 0.382612
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.669016-0.382612=0.286403
+	Intristic info is equal to 1.720206
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.286403/1.720206=0.166494
+	column: SibSp, gain ratio: 0.166494, attribute discrete
+	
+	Now, the possibility of split on attribute Parch is processed
+	Calculated entropy for "Survived" attribute is equal to 0.669016
+	Calculated conditional entropy after splitting dataset on column Parch
+	Calculated conditional entropy is equal to 0.653892
+	Information gain info is equal to:
+	entropy-conditional_entropy=0.669016-0.653892=0.015123
+	Intristic info is equal to 1.135144
+	Gain ratio for discrete attribute C is calculated as:
+	information_gain(C, Y)/intristic_info(C)=0.015123/1.135144=0.013323
+	column: Parch, gain ratio: 0.013323, attribute discrete
+	
 	############### Chosen attribute: SibSp, value of gain: 0.16649361093302303
+	
 	
 	New vertex is processed: this vertex contains
 	- 1 survived observations
 	- 0 deceased observations
 	The splits that led to the advent of this vertex were:
 	['Sex = male', 'Age <= 1']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 6 survived observations
-	- 53 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1']
-	column: Pclass, gain ratio: 0.07134448543370803, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.05346216522701795, split value: 40
-	column: SibSp, gain ratio: 0.016521875902366145, attribute discrete
-	column: Parch, gain ratio: 0.0438446848069315, attribute discrete
-	############### Chosen attribute: Pclass, value of gain: 0.07134448543370803
-	
-	New vertex is processed: this vertex contains
-	- 11 survived observations
-	- 4 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1']
-	column: Pclass, gain ratio: 0.2997723162709534, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.17110871057416346, split value: 14
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.11576241483250045, attribute discrete
-	############### Chosen attribute: Pclass, value of gain: 0.2997723162709534
-	
-	New vertex is processed: this vertex contains
-	- 19 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 0']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 2 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 3']
-	column: Pclass, gain ratio: 0.274017542121281, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 1.0, split value: 8
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.579380164285695, attribute discrete
-	############### Chosen attribute: Age, value of gain: 1.0
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 2']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 4']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 5']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 37 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.05569120277229924, split value: 32
-	column: SibSp, gain ratio: 0.03969457544077502, attribute discrete
-	column: Parch, gain ratio: 0.07483597867418908, attribute discrete
-	############### Chosen attribute: Parch, value of gain: 0.07483597867418908
-	
-	New vertex is processed: this vertex contains
-	- 4 survived observations
-	- 9 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 1']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.4686651882055394, split value: 40
-	column: SibSp, gain ratio: 0.222057265152258, attribute discrete
-	column: Parch, gain ratio: 0.059246976190095675, attribute discrete
-	############### Chosen attribute: Age, value of gain: 0.4686651882055394
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 7 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 2']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 1.0, split value: 12
-	column: SibSp, gain ratio: 0.04755786045881497, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### Chosen attribute: Age, value of gain: 1.0
-	
-	New vertex is processed: this vertex contains
-	- 4 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1', 'Pclass = 1']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 5 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1', 'Pclass = 2']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 2 survived observations
-	- 4 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1', 'Pclass = 3']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.4871971762327021, split value: 4
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.7336804366512111, attribute discrete
-	############### Chosen attribute: Parch, value of gain: 0.7336804366512111
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 3', 'Age <= 8']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 2 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 3', 'Age > 8']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 29 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 0']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 3 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 1.0, split value: 7
-	column: SibSp, gain ratio: 0.5408520829727552, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### Chosen attribute: Age, value of gain: 1.0
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 5']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 3 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 2']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 3']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 4 survived observations
-	- 2 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0.16794857383343836, split value: 13
-	column: SibSp, gain ratio: 0.7336804366512111, attribute discrete
-	column: Parch, gain ratio: 0.3015619649304495, attribute discrete
-	############### Chosen attribute: SibSp, value of gain: 0.7336804366512111
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 7 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age > 40']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 2', 'Age <= 12']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 7 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 2', 'Age > 12']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 1']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 4 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 0']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = female', 'SibSp = 1', 'Pclass = 3', 'Parch = 5']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 3 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1', 'Age <= 7']
-	
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 1 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 3', 'Parch = 1', 'Age > 7']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 4 survived observations
-	- 0 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 0']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 3']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	New vertex is processed: this vertex contains
-	- 0 survived observations
-	- 1 deceased observations
-	The splits that led to the advent of this vertex were:
-	['Sex = male', 'Age > 1', 'Pclass = 1', 'Age <= 40', 'SibSp = 1']
-	column: Pclass, gain ratio: 0.0, attribute discrete
-	column: Sex, gain ratio: 0.0, attribute discrete
-	column: Age, gain ratio: 0, split value: 0
-	column: SibSp, gain ratio: 0.0, attribute discrete
-	column: Parch, gain ratio: 0.0, attribute discrete
-	############### No chosen attribute, end of processing for this subset of dataframe
-	
-	
+	############### The vertex is pure, there is nothing more to do in it
 \end{verbatim}
+\clearpage
 \section{Działanie algorytmu - Generowane drzewa}
-
 \begin{figure}[h!]
 	\subsection{Dyskretny Age}
 	\centering
