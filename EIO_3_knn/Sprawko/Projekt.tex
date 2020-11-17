@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
 \usepackage{lmodern}
 
 \usepackage{graphicx}
@@ -42,7 +43,7 @@ Do klasyfikacji użyto klasyfikatora k najbliższych sąsiadów. Do obliczenia k
 
 Klasyfikator przetestowano dla k od 1 do 30, używając walidacji krzyżowej ze stratyfikacją (domyślne ustawienie), z 10 podziałami. Wyniki dla każdego k uśredniono i przedstawiono na wykresie \ref{fig:accuracy}. Wyniki rosną od 67\% dla $k=1$ do 72\% dla k od 13 do 15, a następnie spadają do około 70\% dla wyższych k. Najwyższą dokładność uzyskano dla k równego 14 - a więc takie wybrano. Na zbiorze testowym dla $k=14$ klasyfikator uzyskał dokładność 70\%.
 
-Przeprowadzono też testy różnych rodzajów skalowania - StandardScaler, MinMaxScaler i MaxAbsScaler. Wyniki i dokładność w zależności od k zamieszczono na wykresie \ref{fig:accuracy-scalers}. Najlepiej wypadł StandardScaler, następnie MinMaxScaler, a najgorzej MaxAbsScaler. Dla tego ostatniego wyniki zmieniały się w dość dużym zakresie. Dla małych wartości k wyniki są porównywalne i szybko rosną, stabilizując się od k równego około 20.
+Przeprowadzono też testy różnych rodzajów skalowania - StandardScaler, MinMaxScaler i MaxAbsScaler. Wyniki i dokładność w zależności od k zamieszczono na wykresie \ref{fig:accuracy-scalers}. Najlepiej wypadł StandardScaler, następnie MinMaxScaler, a najgorzej MaxAbsScaler. Dla małych wartości k wyniki są porównywalne i szybko rosną, stabilizując się od k równego około 20.
 
 \begin{figure}[htb!]
 	\centering
