@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pdflscape} 
+\usepackage{lmodern}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=0.5in,right=0.5in,top=0.5in,bottom=1in,%
+            footskip=.25in]{geometry}
+\usepackage[colorlinks=true, linkcolor=Black, urlcolor=Blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\definecolor{lightgray}{gray}{0.9}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+
+\begin{document}
+\title{Projekt - KMeans\\
+\large Sebastian Michoń 136770, Marcin Zatorski 136834\\
+\large grupe L5}
+\date{\vspace{-10ex}}
+\maketitle
+
+\section{Preprocessing}
+\begin{enumerate}
+	\item Kolumny 'name' i 'mfr' nie były używane w przetwarzaniu, kolumna 'type' została sprowadzona do zmiennej binarnej.
+	\item Atrybuty zostały znormalizowane (sprowadzone do przedziału <0;1>)
+	\item Z pozostałych atrybutów nie były przetwarzane "weight", "shelf", "cups" i "ratings" - jeśli zadanie dotyczyło produktów podobnych ze względu na wartości odżywcze, to te atrybuty są prawdopodobnie zbędne.
+\end{enumerate}
+
+\section{Informacje wyróżniające powstałe grupy}
+\begin{enumerate}
+	\item W kolejnych klastrach było kolejno: 14, 25 i 38 obserwacji
+	
+	\item Obserwacje zawierające rodzynki (raisin w nazwie) były prawie wyłącznie w 3. grupie (9 obserwacji) podobnie jak musli (3 obserwacje) i miód (5 obserwacji). Kukurydza występowała głównie w 2. grupie (3 obserwacje), podobnie jak winogrona (2 obserwacje) i nasiona (4 z 5 obserwacji). W 1. grupie było 6 obserwacji z pszenicą w nazwie (były też 3 w 2. klastrze i 2 w 3. klastrze).
+	
+	\item Obserwacje z 1. klastra posiadały średnio najwyższe oceny (minimum wyższe niż maksimum trzeciego klastra), zawierały najmniej witamin, sodu i tłuszczu.
+	
+	\item W drugim klastrze obserwacje zawierały średnio najwięcej węglowodanów, sodu i witamin.
+	
+	\item W trzecim klastrze obserwacje zawierały średnio najwięcej cukru, tłuszczu i kalorii. Ponadto miały najniższe oceny.
+\end{enumerate}
+
+\section {Dodatkowe informacje}
+\begin{enumerate}
+	\item Zależnie od wybranych początkowych centroidów powstałe grupy są różne, przy czym pewne obserwacje zawsze występują razem.
+	\item Rezultaty własnego kMeansa były podobne do rezultatów tego samego algorytmu ze scikit-learn.
+\end{enumerate}
+
+\end{document}
